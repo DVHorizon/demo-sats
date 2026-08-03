@@ -303,7 +303,7 @@ export default function Header() {
         >
             {/* Nội dung Header theo chuẩn CSS mẫu SATS (relative z-50 để bóng phủ lên Mega Menu z-40) */}
             <div className={`relative z-50 transition-shadow duration-300 ${activeMegaMenu ? 'shadow-[0_12px_24px_-4px_rgba(0,0,0,0.15)]' : ''}`}>
-                <div className="max-w-[1780px] mx-auto px-3 sm:px-3 py-4 lg:py-6 flex justify-between items-center min-[800px]:items-start relative z-10">
+                <div className="max-w-[1780px] mx-auto lg:mx-10 px-3 sm:px-3 py-4 lg:py-6 flex flex-wrap justify-between items-center min-[800px]:items-start relative z-10">
 
                     {/* 1. Cột Logo */}
                     <div className="flex-shrink-0 mr-6 lg:mr-14 min-[800px]:mt-6 lg:mt-4">
@@ -314,7 +314,7 @@ export default function Header() {
                                 alt="SATS Logo"
                                 width={260}
                                 height={70}
-                                className={`w-44 sm:w-56 lg:w-72 h-auto object-contain hidden min-[800px]:block ${isScrolled || isMobileMenuOpen || activeMegaMenu ? 'min-[800px]:!hidden' : 'min-[800px]:group-hover:hidden'}`}
+                                className={`w-44 sm:w-56 lg:w-90 h-auto object-contain hidden min-[800px]:block ${isScrolled || isMobileMenuOpen || activeMegaMenu ? 'min-[800px]:!hidden' : 'min-[800px]:group-hover:hidden'}`}
                                 priority
                             />
                             {/* Logo Đỏ (Mặc định hiển thị trên Mobile và khi Scroll/Hover trên Desktop) */}
@@ -323,7 +323,7 @@ export default function Header() {
                                 alt="SATS Logo"
                                 width={260}
                                 height={70}
-                                className={`w-44 sm:w-56 lg:w-72 h-auto object-contain block ${isScrolled || isMobileMenuOpen || activeMegaMenu ? 'min-[800px]:block' : 'min-[800px]:hidden min-[800px]:group-hover:block'}`}
+                                className={`w-44 sm:w-56 lg:w-90 h-auto object-contain block ${isScrolled || isMobileMenuOpen || activeMegaMenu ? 'min-[800px]:block' : 'min-[800px]:hidden min-[800px]:group-hover:block'}`}
                                 priority
                             />
                         </Link>
@@ -332,7 +332,7 @@ export default function Header() {
                     {/* 2. Cột Menu bên phải */}
                     <div className="hidden min-[800px]:flex flex-1 flex-col items-end">
                         {/* Tầng 1: Top Nav */}
-                        <div className={`flex items-center gap-4 text-xs sm:text-sm font-medium transition-colors duration-100 mb-2 ${isScrolled || activeMegaMenu ? 'text-[#414042]' : 'text-[#414042] min-[800px]:text-white min-[800px]:group-hover:text-[#414042]'}`}>
+                        <div className={`flex items-center gap-4 text-lg font-medium transition-colors duration-100 mb-2 mr-5 ${isScrolled || activeMegaMenu ? 'text-[#414042]' : 'text-[#414042] min-[800px]:text-white min-[800px]:group-hover:text-[#414042]'}`}>
                             <Link href="/contact" className="hover:!text-brand-red-fluit transition-colors px-2 py-1">Contact</Link>
                             <Link href="/tenders" className="hover:!text-brand-red-fluit transition-colors px-2 py-1">Tenders</Link>
                             <div className="relative z-50">
