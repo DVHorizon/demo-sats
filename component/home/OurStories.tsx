@@ -56,7 +56,17 @@ const storiesData: StoryItem[] = [
 
 export default function OurStories() {
     return (
-        <section className="w-full bg-white pb-16 lg:pb-33 text-[#482146]">
+        <section className="relative w-full bg-[#fff] pb-16 lg:pb-33 text-[#482146]">
+            <div className="absolute top-full left-0 w-full pointer-events-none z-10 drop-shadow-[0_30px_30px_rgba(0,0,0,0.1)] [clip-path:inset(0_0_-100px_0)]">
+                <Image
+                    src="/images/curve-mobile-menu.svg"
+                    alt="Mobile Menu Bottom Curve"
+                    width={400}
+                    height={15}
+                    className="w-full h-auto block"
+                    priority
+                />
+            </div>
             <div className="w-full max-w-[1780px] mx-auto px-4 lg:px-10">
                 {/* Đường kẻ đỏ phân cách giữa 2 section */}
                 <div className="w-full border-t-2 border-[#e31837] opacity-60 mb-16 lg:mb-24" />
