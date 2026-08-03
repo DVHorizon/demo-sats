@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative overflow-hidden bg-gradient-to-b from-[#3a3a3a] to-[#585858] text-white py-12 text-xs mt-20">
+        <footer className="relative overflow-hidden bg-gradient-to-b from-[#3a3a3a] to-[#585858] text-white py-12 text-xs">
             {/* Khối hình SVG nền chìm phía sau */}
             <div className="absolute inset-0 z-0 pointer-events-none flex justify-end items-end">
                 <svg
