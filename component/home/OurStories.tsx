@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface NewsItem {
+interface StoryItem {
     id: number;
     date: string;
     title: string;
@@ -9,73 +9,96 @@ interface NewsItem {
     link: string;
 }
 
-const newsData: NewsItem[] = [
+const storiesData: StoryItem[] = [
     {
         id: 1,
-        date: "20 Jul 2026",
-        title: "SATS’ next lap will lean on AI, F1-style telemetry – and hot wings",
-        image: "/images/CF AI Control tower thumbnail.jpg",
-        link: "/media/sats-in-the-news/sats-next-lap-will-lean-on-ai",
+        date: "Jun 24, 2026",
+        title: "SATS and Temasek Life Sciences Laboratory Sign MOU to Explore Collaboration in Support of Singapore’s Food Security",
+        image: "/images/TLL Team with SATS team.jpeg",
+        link: "/media/latest-news/sats-and-temasek-life-sciences",
     },
     {
         id: 2,
-        date: "25 Jun 2026",
-        title: "High-nutrition Singapore tomatoes and fish could soon be on airline menus and in schools",
-        image: "/images/HIGH-N_1.PNG",
-        link: "/media/sats-in-the-news/high-nutrition-singapore-tomatoes",
+        date: "Jun 22, 2026",
+        title: "WFS awarded 5-year contract by Geodis in Brussels for Freight Forwarder Handling Services",
+        image: "/images/wfs.annual report.paris.2025-1799.full resolution.jpg",
+        link: "/media/latest-news/wfs-awarded-5-year-contract-geodis",
     },
     {
         id: 3,
-        date: "24 Jun 2026",
-        title: "SATS signs MOU with TLL to bring Singapore's home-grown food innovations from the laboratory to the table",
-        image: "/images/SATS signs MOU with TLL to to bring Singapore's home-grown food innovations from the laboratory to the table.png",
-        link: "/media/sats-in-the-news/sats-signs-mou-with-tll",
+        date: "May 25, 2026",
+        title: "SATS POSTS FULL YEAR NET PROFIT OF S$285.2 MILLION",
+        image: "/images/SATS Logo assorted (5)-High Res format (Jpeg, 2560px)1.jpg",
+        link: "/media/latest-news/sats-posts-full-year-net-profit",
+    },
+    {
+        id: 4,
+        date: "May 06, 2026",
+        title: "SATS Acquires Controlling Stake in Nanjing Weizhou Airline Food to Strengthen China Food Solutions Platform",
+        image: "/images/NWA signing.jpg",
+        link: "/media/latest-news/sats-acquires-controlling-stake-nanjing",
+    },
+    {
+        id: 5,
+        date: "Apr 30, 2026",
+        title: "WFS wins Qatar Airways Cargo Handling contract in Liège",
+        image: "/images/30.jpg",
+        link: "/media/latest-news/wfs-wins-qatar-airways-contract",
+    },
+    {
+        id: 6,
+        date: "Apr 29, 2026",
+        title: "Kuehne+Nagel signs up for WFS’ new E-commerce & Freight Forwarder Handling services in Frankfurt",
+        image: "/images/PR MXP.png",
+        link: "/media/latest-news/kuehne-nagel-signs-up-wfs",
     },
 ];
 
-export default function SatsInTheNews() {
+export default function OurStories() {
     return (
-        <section className="w-full bg-white py-16 lg:py-33 text-[#482146]">
+        <section className="w-full bg-white pb-16 lg:pb-33 text-[#482146]">
             <div className="w-full max-w-[1780px] mx-auto px-4 lg:px-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                {/* Đường kẻ đỏ phân cách giữa 2 section */}
+                <div className="w-full border-t-2 border-[#e31837] opacity-60 mb-16 lg:mb-24" />
 
-                    {/* Cột trái: Heading & Nút View All */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    {/* Cột trái: Heading & Nút View All News */}
                     <div className="lg:col-span-4 flex flex-col items-start">
                         <h2
                             className="text-5xl lg:text-7xl font-bold text-[#482146] leading-[1.1] mb-6"
                             style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
                         >
-                            SATS in<br />the news
+                            Our<br />Stories
                         </h2>
-                        <p className="text-[#50284f]/80 mb-8 leading-relaxed text-lg ">
-                            A world leader in air cargo and inflight catering solutions
+                        <p className="text-[#50284f]/80 mb-8 leading-relaxed text-lg font-normal">
+                            Discover the latest updates, achievements, and insights from across SATS and our global network.
                         </p>
                         <Link
-                            href="/media/sats-in-the-news"
+                            href="/media/latest-news"
                             className="bg-[#e31837] hover:bg-[#351833] text-white font-bold px-7 py-3 rounded-full text-md transition-colors duration-500 shadow-sm"
                             style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
                         >
-                            View All Media Features
+                            View All News
                         </Link>
                     </div>
 
-                    {/* Cột phải: Danh sách bài viết & Nút Load More */}
+                    {/* Cột phải: Lưới các bài viết */}
                     <div className="lg:col-span-8 flex flex-col">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 mb-12">
-                            {newsData.map((item) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+                            {storiesData.map((item) => (
                                 <Link
                                     key={item.id}
                                     href={item.link}
                                     className="group flex flex-wrap gap-4 items-start"
                                 >
-                                    {/* Thumbnail bo góc 20px */}
+                                    {/* Thumbnail bo góc 20px, co giãn linh hoạt trên mobile */}
                                     <div className="relative w-full sm:w-[190px] aspect-[16/10] shrink-0 rounded-[20px] overflow-hidden bg-gray-100 shadow-sm">
                                         <Image
                                             src={item.image}
                                             alt={item.title}
                                             fill
                                             className="object-cover"
-                                            sizes="170px"
+                                            sizes="(max-width: 640px) 100vw, 180px"
                                         />
                                     </div>
 
@@ -88,7 +111,7 @@ export default function SatsInTheNews() {
                                             {item.date}
                                         </span>
                                         <h3
-                                            className="text-[#482146] font-bold leading-snug transition-colors"
+                                            className="text-[#482146] font-bold leading-snug"
                                             style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
                                         >
                                             {item.title}
@@ -97,18 +120,7 @@ export default function SatsInTheNews() {
                                 </Link>
                             ))}
                         </div>
-
-                        {/* Nút Load More */}
-                        <div className="flex justify-center">
-                            <button
-                                className="bg-[#e31837] hover:bg-[#351833] text-white font-bold px-9 py-2.5 rounded-full text-sm transition-colors shadow-sm"
-                                style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
-                            >
-                                Load More
-                            </button>
-                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
