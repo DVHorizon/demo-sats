@@ -32,7 +32,7 @@ export default function Investors() {
                 {/* Header section */}
                 <div className="mb-10 lg:mb-14">
                     <h2
-                        className="text-5xl lg:text-6xl font-bold text-[#482146] leading-tight mb-4"
+                        className="text-[24px] lg:text-[52px] font-bold text-[#482146] leading-tight mb-4"
                         style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
                     >
                         Investors
@@ -61,8 +61,8 @@ export default function Investors() {
                             Market Capitalisation
                         </h3>
                         <div className="w-full mb-6">
-                            <div className="flex items-baseline gap-2 mb-2">
-                                <span className="text-6xl font-bold text-[#333333]">$7.05B</span>
+                            <div className="flex flex-wrap items-baseline gap-2 mb-2">
+                                <span className="text-3xl md:text-6xl font-bold text-[#333333]">$7.05B</span>
                                 <span className="text-xl font-bold text-[#482146]">SGD</span>
                             </div>
                             <p className="text-lg text-gray-600 font-medium">as of 03 August 2026</p>
@@ -80,8 +80,8 @@ export default function Investors() {
 
                         <div className="w-full mb-4">
                             {/* Giá $4.79 SGD */}
-                            <div className="flex items-baseline gap-2 mb-3">
-                                <span className="text-6xl font-bold text-[#333333]">$4.79</span>
+                            <div className="flex flex-wrap items-baseline gap-2 mb-3">
+                                <span className="text-3xl md:text-6xl font-bold text-[#333333]">$4.79</span>
                                 <span className="text-xl font-bold text-[#333333]">SGD</span>
                             </div>
 

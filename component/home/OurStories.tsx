@@ -75,12 +75,12 @@ export default function OurStories() {
                     {/* Cột trái: Heading & Nút View All News */}
                     <div className="lg:col-span-4 flex flex-col items-start">
                         <h2
-                            className="text-5xl lg:text-7xl font-bold text-[#482146] leading-[1.1] mb-6"
+                            className="text-[36px] lg:text-[80px] font-bold text-[#482146] leading-[1.1] mb-6"
                             style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
                         >
                             Our<br />Stories
                         </h2>
-                        <p className="text-[#50284f]/80 mb-8 leading-relaxed text-lg font-normal">
+                        <p className="text-[#50284f]/80 mb-8 leading-relaxed text-[14px] lg:text-[18px] font-normal">
                             Discover the latest updates, achievements, and insights from across SATS and our global network.
                         </p>
                         <Link
@@ -113,7 +113,7 @@ export default function OurStories() {
                                     </div>
 
                                     {/* Nội dung */}
-                                    <div className="flex flex-col flex-1 pt-1 text-[1.3rem]">
+                                    <div className="flex flex-col flex-1 pt-1 text-[20px] md:text-[16px] lg:text-[20px]">
                                         <span
                                             className="text-[#482146] font-bold mb-1"
                                             style={{ fontFamily: "'Century Gothic', 'Arial', sans-serif" }}
