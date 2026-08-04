@@ -165,9 +165,8 @@ export default function Hero () {
               <div className='w-full text-white'>
                 {slide.heading ? (
                   <h1
-                    className='leading-tight text-[4rem] mb-4 drop-shadow-[0px_0px_20px_rgba(0,0,0,0.4)]'
+                    className='leading-tight text-[50px] md:text-[64px] mb-4 drop-shadow-[0px_0px_20px_rgba(0,0,0,0.4)]'
                     style={{
-                      fontSize: 'clamp(1.8rem, 4.5vw, 4rem)',
                       fontFamily: "'Century Gothic', 'Arial', sans-serif"
                     }}
                     dangerouslySetInnerHTML={{ __html: slide.heading }}
@@ -193,7 +192,7 @@ export default function Hero () {
                 </p>
                 <Link
                   href={slide.buttonLink}
-                  className='inline-flex items-center justify-center bg-brand-red hover:bg-[#50284f] text-white font-bold rounded-full transition-colors duration-300'
+                  className='inline-flex items-center justify-center bg-brand-red hover:bg-brand-purple text-white font-bold rounded-full transition-colors duration-300'
                   style={{
                     fontSize: 'clamp(0.75rem, 1.8vh, 0.875rem)',
                     padding:
@@ -210,7 +209,7 @@ export default function Hero () {
 
       {/* Title Indicators (Fixed Overlay) */}
       <div className='absolute inset-0 z-40 flex items-end pointer-events-none pb-10 sm:pb-14 md:pb-20 lg:pb-25'>
-        <div className='w-full max-w-[1780px] mx-auto lg:mx-6 px-4'>
+        <div className='w-full max-w-[1780px] mx-auto px-4 lg:px-10'>
           <div className='flex gap-3 pointer-events-auto'>
             {slides.map((indicatorSlide, indicatorIdx) => (
               <button

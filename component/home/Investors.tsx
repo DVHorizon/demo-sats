@@ -67,8 +67,19 @@ export default function Investors () {
   const [hoveredPoint, setHoveredPoint] = useState<ChartPoint | null>(null)
 
   return (
-    <section className='w-full bg-[#fcfcfd] pb-16 pt-16 lg:pt-24 lg:pb-20 text-[#482146] relative'>
-      <div className='w-full max-w-[1780px] mx-auto px-4 lg:px-10'>
+    <section className='w-full bg-[#fcfcfd] pb-16 lg:pt-0 lg:pb-20 text-[#482146] relative z-20'>
+      {/* Curve transition từ OurStories - IN FLOW để đẩy content xuống tự nhiên */}
+      <div className='relative w-full pointer-events-none drop-shadow-[0_30px_30px_rgba(0,0,0,0.1)] [clip-path:inset(0_0_-100px_0)]'>
+        <Image
+          src='/images/curve-mobile-menu.svg'
+          alt='Section Curve Decor'
+          width={400}
+          height={15}
+          className='w-full h-auto block'
+          priority
+        />
+      </div>
+      <div className='w-full max-w-[1780px] mx-auto px-4 lg:px-10 pt-16 lg:pt-50'>
         {/* Header section */}
         <div className='mb-10 lg:mb-14'>
           <h2
@@ -77,7 +88,7 @@ export default function Investors () {
           >
             Investors
           </h2>
-          <p className='text-[#50284f]/80 text-base lg:text-lg max-w-2xl leading-relaxed mb-6 font-normal'>
+          <p className='text-brand-purple/80 text-base lg:text-lg max-w-2xl leading-relaxed mb-6 font-normal'>
             As a technology-driven, people-led organisation, we’re dedicated to
             delivering soaring results for our customers, communities and
             shareholders and long-term sustainable growth.

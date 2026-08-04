@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export default function Sustainability () {
   return (
-    <section className='relative w-full py-20 lg:py-32 overflow-hidden flex items-center min-h-150 lg:min-h-180'>
-      {/* Top White Curve Decor */}
-      <div className='absolute top-0 left-0 w-full pointer-events-none z-20'>
+    <section className='relative w-full min-h-150 lg:min-h-180 overflow-hidden'>
+      {/* Top White Curve Decor - IN FLOW (không absolute) để đẩy content xuống tự nhiên */}
+      <div className='relative z-20 w-full pointer-events-none'>
         <Image
           src='/images/curve-top-white.svg'
           alt='Top Curve'
@@ -39,7 +39,7 @@ export default function Sustainability () {
       </div>
 
       {/* Content Container */}
-      <div className='relative z-20 w-full max-w-[1780px] mx-auto px-4 pt-40 lg:px-10'>
+      <div className='relative z-20 w-full max-w-[1780px] mx-auto px-4 py-16 lg:pt-50 lg:px-10'>
         <div className='w-full lg:w-[55%]'>
           <h2
             className='text-[24px] lg:text-[52px] font-bold text-white mb-6 lg:mb-8'

@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export default function GlobalNetwork () {
   return (
-    <section className='relative w-full min-h-180 lg:min-h-205 flex items-center overflow-hidden'>
-      {/* Layer đường cong trắng mép trên */}
-      <div className='absolute top-0 left-0 w-full pointer-events-none z-10'>
+    <section className='relative w-full min-h-180 lg:min-h-205 overflow-hidden'>
+      {/* Layer đường cong trắng mép trên - IN FLOW (không absolute) để đẩy content xuống tự nhiên */}
+      <div className='relative z-10 w-full pointer-events-none'>
         <Image
           src='/images/curve-top-white.svg'
           alt='Top White Curve Decor'
@@ -41,7 +41,7 @@ export default function GlobalNetwork () {
       </div>
 
       {/* Nội dung Banner */}
-      <div className='relative z-20 w-full max-w-[1780px] mx-auto px-4 lg:px-10 pt-40 lg:pt-96 pb-60 text-white'>
+      <div className='relative z-20 w-full max-w-[1780px] mx-auto px-4 lg:px-10 pt-16 lg:pt-50 pb-20 lg:pb-40 text-white'>
         <div className='max-w-2xl'>
           <h2
             className='text-2xl lg:text-[52px] font-bold leading-tight mb-6'

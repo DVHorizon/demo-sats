@@ -21,7 +21,7 @@ export default function Footer () {
       </div>
 
       {/* Nội dung Footer */}
-      <div className='relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6'>
+      <div className='relative z-10 w-full max-w-[1780px] mx-auto px-4 lg:px-10 grid grid-cols-1 md:grid-cols-4 gap-8'>
         {/* Cột 1: Thông tin địa chỉ & Mạng xã hội */}
         <div className='text-white'>
           <h3 className='font-semibold mb-4'>Contact Us</h3>

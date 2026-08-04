@@ -325,7 +325,7 @@ export default function Header () {
           activeMegaMenu ? 'shadow-[0_12px_24px_-4px_rgba(0,0,0,0.15)]' : ''
         }`}
       >
-        <div className='max-w-[1780px] mx-auto lg:mx-10 px-3 sm:px-3 py-4 lg:py-6 flex flex-wrap justify-between items-center min-[800px]:items-start relative z-10'>
+        <div className='w-full max-w-[1780px] mx-auto px-4 lg:px-10 py-4 lg:py-6 flex flex-wrap justify-between items-center min-[800px]:items-start relative z-10'>
           {/* 1. Cột Logo */}
           <div className='shrink-0 mr-6 lg:mr-14 min-[800px]:mt-6 lg:mt-4'>
             <Link href='/'>
@@ -781,7 +781,7 @@ export default function Header () {
                   <span>Back</span>
                 </button>
               </div>
-              <span className='mr-auto font-bold text-xl text-[#50284f]'>
+              <span className='mr-auto font-bold text-xl text-brand-purple'>
                 {activeMobileMenu}
               </span>
 
@@ -880,7 +880,7 @@ export default function Header () {
                   <span>Back</span>
                 </button>
               </div>
-              <span className='mr-auto font-bold text-xl text-[#50284f]'>
+              <span className='mr-auto font-bold text-xl text-brand-purple'>
                 {activeMobileSubMenu}
               </span>
 
@@ -1061,7 +1061,7 @@ export default function Header () {
               </svg>
             </button>
 
-            <div className='max-w-[1780px] mx-auto px-6 py-12 flex relative'>
+            <div className='w-full max-w-[1780px] mx-auto px-4 lg:px-10 py-12 flex relative'>
               {/* Render Content using Mapping */}
               {megaMenusData.map(menu => (
                 <div
@@ -1097,7 +1097,7 @@ export default function Header () {
                             setActiveMegaMenu(null)
                             setActiveSubItem(null)
                           }}
-                          className='inline-block bg-brand-red text-white font-bold text-[13px] px-6 py-2 rounded-full hover:bg-[#50284f] transition-colors'
+                          className='inline-block bg-brand-red text-white font-bold text-[13px] px-6 py-2 rounded-full hover:bg-brand-purple transition-colors'
                         >
                           Explore More
                         </Link>

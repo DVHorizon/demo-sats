@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/component/layout/Header";
 import Footer from "@/component/layout/Footer";
 import React from "react";
+import AwbTrackingWidget from "@/component/common/AwbTrackingWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
         {children}
+        <AwbTrackingWidget />
         <Footer />
       </body>
     </html>

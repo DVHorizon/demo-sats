@@ -13,6 +13,7 @@
   --color-brand-red: #ef3741;
   --color-brand-red-fluit: #ee2536;
   --color-text-gray: #6b7280;
+  --color-brand-purple: #50284f;
 }
 
 @media (prefers-color-scheme: dark) {
