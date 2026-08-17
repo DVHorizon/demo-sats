@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 
 export default function Header () {
   const pathname = usePathname()
-  const isSolidTheme = pathname == '/contact'
+  const isSolidTheme = pathname == '/contact' || pathname == '/tenders'
   const [isVisible, setIsVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -422,7 +422,7 @@ export default function Header () {
                 >
                   <div className='h-px bg-white mb-2 mt-1.75 w-full' />
 
-                  <ul className='flex flex-col gap-2 text-[12px] mt-2.5'>
+                  <ul className='flex flex-col gap-2 text-[20px] mt-2.5'>
                     {['EN', 'FR', 'ES', 'IT']
                       .filter(lang => lang !== selectedLang)
                       .map(lang => (
