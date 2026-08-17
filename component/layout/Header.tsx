@@ -3,8 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Header () {
+  const pathname = usePathname()
+  const isSolidTheme = pathname == '/contact'
   const [isVisible, setIsVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -307,13 +310,12 @@ export default function Header () {
       }}
       className={`
                 group fixed top-0 w-full z-50 px-1 transition-all duration-100
+                ${isVisible ? 'translate-y-0' : '-translate-y-full'}
                 ${
-                  isVisible
-                    ? 'translate-y-0'
-                    : 'translate-y-0 min-[800px]:-translate-y-full'
-                }
-                ${
-                  isScrolled || isMobileMenuOpen || activeMegaMenu
+                  isScrolled ||
+                  isMobileMenuOpen ||
+                  activeMegaMenu ||
+                  isSolidTheme
                     ? 'bg-white text-[#414042] shadow-md'
                     : 'bg-white text-[#414042] shadow-md min-[800px]:bg-transparent min-[800px]:text-white min-[800px]:hover:text-[#414042] min-[800px]:shadow-none'
                 }
@@ -336,7 +338,10 @@ export default function Header () {
                 width={260}
                 height={70}
                 className={`w-44 sm:w-56 lg:w-90 h-auto object-contain hidden min-[800px]:block ${
-                  isScrolled || isMobileMenuOpen || activeMegaMenu
+                  isScrolled ||
+                  isMobileMenuOpen ||
+                  activeMegaMenu ||
+                  isSolidTheme
                     ? 'min-[800px]:hidden!'
                     : 'min-[800px]:group-hover:hidden'
                 }`}
@@ -349,7 +354,10 @@ export default function Header () {
                 width={260}
                 height={70}
                 className={`w-44 sm:w-56 lg:w-90 h-auto object-contain block ${
-                  isScrolled || isMobileMenuOpen || activeMegaMenu
+                  isScrolled ||
+                  isMobileMenuOpen ||
+                  activeMegaMenu ||
+                  isSolidTheme
                     ? 'min-[800px]:block'
                     : 'min-[800px]:hidden min-[800px]:group-hover:block'
                 }`}
@@ -363,7 +371,7 @@ export default function Header () {
             {/* Tầng 1: Top Nav */}
             <div
               className={`flex items-center gap-4 text-lg font-medium transition-colors duration-100 mb-2 mr-5 ${
-                isScrolled || activeMegaMenu
+                isScrolled || activeMegaMenu || isSolidTheme
                   ? 'text-[#414042]'
                   : 'text-[#414042] min-[800px]:text-white min-[800px]:group-hover:text-[#414042]'
               }`}
@@ -479,7 +487,7 @@ export default function Header () {
             <nav className='w-full flex justify-end'>
               <div
                 className={`flex flex-wrap justify-end gap-x-4 lg:gap-x-6 font-bold text-xs sm:text-sm lg:text-base border-t border-solid transition-colors duration-100 relative -top-px ${
-                  isScrolled || activeMegaMenu
+                  isScrolled || activeMegaMenu || isSolidTheme
                     ? 'border-brand-red text-[#414042]'
                     : 'border-[#fabdc2] min-[800px]:border-white min-[800px]:group-hover:border-brand-red text-[#414042] min-[800px]:text-white min-[800px]:group-hover:text-[#414042]'
                 }`}
@@ -1013,7 +1021,7 @@ export default function Header () {
       {/* KHỐI NỀN TRẮNG LIỀN MẠCH (WRAPPER) */}
       <div
         className={`hidden min-[800px]:block absolute inset-0 z-0 pointer-events-none transition-transform duration-500 ease-out ${
-          isScrolled || activeMegaMenu
+          isScrolled || activeMegaMenu || isSolidTheme
             ? 'translate-y-0'
             : '-translate-y-full group-hover:translate-y-0'
         }`}
@@ -1021,7 +1029,7 @@ export default function Header () {
         {/* 1. Phần nền trắng của Header */}
         <div
           className={`absolute inset-0 bg-white shadow-xl transition-opacity duration-300 ${
-            isScrolled ? 'opacity-0' : 'opacity-100'
+            isScrolled || isSolidTheme ? 'opacity-0' : 'opacity-100'
           }`}
         />
 
