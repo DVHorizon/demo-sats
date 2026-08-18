@@ -3,10 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Header () {
   const pathname = usePathname()
+  const router = useRouter()
   const isSolidTheme = pathname == '/contact' || pathname == '/tenders'
   const [isVisible, setIsVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -493,21 +494,59 @@ export default function Header () {
                 }`}
               >
                 {[
-                  { name: 'About Us', hasMegaMenu: true },
-                  { name: 'Global Network', hasMegaMenu: true },
-                  { name: 'Services', hasMegaMenu: true },
-                  { name: 'Sustainability', hasMegaMenu: true },
-                  { name: 'Investors', hasMegaMenu: true },
-                  { name: 'News & Resources', hasMegaMenu: false, href: '#' },
-                  { name: 'Careers', hasMegaMenu: true }
+                  { name: 'About Us', hasMegaMenu: true, href: '/about' },
+                  {
+                    name: 'Global Network',
+                    hasMegaMenu: true,
+                    href: '/network'
+                  },
+                  { name: 'Services', hasMegaMenu: true, href: '/services' },
+                  {
+                    name: 'Sustainability',
+                    hasMegaMenu: true,
+                    href: '/sustainability'
+                  },
+                  { name: 'Investors', hasMegaMenu: true, href: '/investors' },
+                  {
+                    name: 'News & Resources',
+                    hasMegaMenu: false,
+                    href: '/news'
+                  },
+                  { name: 'Careers', hasMegaMenu: true, href: '/careers' }
                 ].map(item => {
+                  const isActive =
+                    item.href &&
+                    item.href !== '#' &&
+                    (pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`))
+
+                  const isTransparentNav = !(
+                    isScrolled ||
+                    activeMegaMenu ||
+                    isSolidTheme
+                  )
+
+                  const activeTextClass = isTransparentNav
+                    ? 'text-brand-red! min-[800px]:text-white! min-[800px]:group-hover:text-brand-red!'
+                    : 'text-brand-red!'
+                  const activeBgClass = isTransparentNav
+                    ? 'bg-brand-red min-[800px]:bg-white min-[800px]:group-hover:bg-brand-red'
+                    : 'bg-brand-red'
+
                   if (!item.hasMegaMenu) {
                     return (
                       <Link
                         key={item.name}
                         href={item.href || '#'}
-                        className='relative group/item py-3 transition-colors duration-100 hover:text-brand-red!'
+                        className={`relative group/item py-3 transition-colors duration-100 hover:text-brand-red! ${
+                          isActive ? activeTextClass : ''
+                        }`}
                       >
+                        {isActive && (
+                          <span
+                            className={`absolute top-[-2px] left-0 w-full h-[4px] transition-colors duration-100 ${activeBgClass}`}
+                          />
+                        )}
                         {item.name}
                         <span className='absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[9px] border-b-brand-red transition-opacity duration-200 opacity-0 group-hover/item:opacity-100' />
                       </Link>
@@ -523,7 +562,12 @@ export default function Header () {
                         }
 
                         if (activeMegaMenu === item.name) {
-                          setActiveMegaMenu(null)
+                          if (item.href) {
+                            router.push(item.href)
+                            setActiveMegaMenu(null)
+                          } else {
+                            setActiveMegaMenu(null)
+                          }
                         } else if (activeMegaMenu) {
                           // Đóng menu hiện tại trước
                           setActiveMegaMenu(null)
@@ -541,9 +585,16 @@ export default function Header () {
                         }
                       }}
                       className={`relative group/item py-3 transition-colors duration-100 hover:text-brand-red! ${
-                        activeMegaMenu === item.name ? 'text-brand-red!' : ''
+                        activeMegaMenu === item.name || isActive
+                          ? activeTextClass
+                          : ''
                       }`}
                     >
+                      {isActive && (
+                        <span
+                          className={`absolute top-[-2px] left-0 w-full h-[4px] transition-colors duration-100 ${activeBgClass}`}
+                        />
+                      )}
                       {item.name}
                       {/* Mũi tên đỏ hover chuẩn SATS */}
                       <span
@@ -708,21 +759,41 @@ export default function Header () {
               {/* Main Nav Mobile */}
               <nav className='flex flex-col gap-0 font-medium text-sm border-b border-[#fabdc2]'>
                 {[
-                  { name: 'About Us', hasMegaMenu: true },
-                  { name: 'Global Network', hasMegaMenu: true },
-                  { name: 'Services', hasMegaMenu: true },
-                  { name: 'Sustainability', hasMegaMenu: true },
-                  { name: 'Investors', hasMegaMenu: true },
-                  { name: 'News & Resources', hasMegaMenu: false, href: '#' },
-                  { name: 'Careers', hasMegaMenu: true }
+                  { name: 'About Us', hasMegaMenu: true, href: '/about' },
+                  {
+                    name: 'Global Network',
+                    hasMegaMenu: true,
+                    href: '/network'
+                  },
+                  { name: 'Services', hasMegaMenu: true, href: '/services' },
+                  {
+                    name: 'Sustainability',
+                    hasMegaMenu: true,
+                    href: '/sustainability'
+                  },
+                  { name: 'Investors', hasMegaMenu: true, href: '/investors' },
+                  {
+                    name: 'News & Resources',
+                    hasMegaMenu: false,
+                    href: '/news'
+                  },
+                  { name: 'Careers', hasMegaMenu: true, href: '/careers' }
                 ].map(item => {
+                  const isActive =
+                    item.href &&
+                    item.href !== '#' &&
+                    (pathname === item.href ||
+                      pathname.startsWith(`${item.href}/`))
+
                   if (!item.hasMegaMenu) {
                     return (
                       <Link
                         key={item.name}
                         href={item.href || '#'}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className='py-5 transition-colors flex items-center justify-between border-b border-[#ececec] last:border-0'
+                        className={`py-5 transition-colors flex items-center justify-between border-b border-[#ececec] last:border-0 ${
+                          isActive ? 'text-brand-red' : ''
+                        }`}
                       >
                         <span>{item.name}</span>
                       </Link>
@@ -733,9 +804,15 @@ export default function Header () {
                       key={item.name}
                       type='button'
                       onClick={() => setActiveMobileMenu(item.name)}
-                      className='py-5 transition-colors flex items-center justify-between border-b border-[#ececec] last:border-0 w-full text-left focus:outline-none group/mobmenu'
+                      className={`py-5 transition-colors flex items-center justify-between border-b border-[#ececec] last:border-0 w-full text-left focus:outline-none group/mobmenu ${
+                        isActive ? 'text-brand-red' : ''
+                      }`}
                     >
-                      <span className='group-hover/mobmenu:text-brand-red transition-colors'>
+                      <span
+                        className={`group-hover/mobmenu:text-brand-red transition-colors ${
+                          isActive ? 'text-brand-red' : ''
+                        }`}
+                      >
                         {item.name}
                       </span>
                       <svg
