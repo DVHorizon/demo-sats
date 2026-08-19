@@ -544,7 +544,7 @@ export default function Header () {
                       >
                         {isActive && (
                           <span
-                            className={`absolute top-[-2px] left-0 w-full h-[4px] transition-colors duration-100 ${activeBgClass}`}
+                            className={`absolute -top-0.5 left-0 w-full h-1 transition-colors duration-100 ${activeBgClass}`}
                           />
                         )}
                         {item.name}
@@ -592,7 +592,7 @@ export default function Header () {
                     >
                       {isActive && (
                         <span
-                          className={`absolute top-[-2px] left-0 w-full h-[4px] transition-colors duration-100 ${activeBgClass}`}
+                          className={`absolute -top-0.5 left-0 w-full h-1 transition-colors duration-100 ${activeBgClass}`}
                         />
                       )}
                       {item.name}
